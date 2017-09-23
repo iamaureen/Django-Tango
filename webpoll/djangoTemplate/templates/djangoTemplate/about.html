@@ -1,0 +1,25 @@
+{% extends 'djangoTemplate/base.html' %} <!-- Add this for inheritance -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}About Us {% endblock %}</title>
+</head>
+<body>
+ {% block pagecontent %}
+  <p>
+  I want Pizza :D
+
+  <ol>
+    <li>I love weekends.</li>
+    <li>I love travelling.</li>
+  </ol>
+  </p>
+   {% include 'djangoTemplate/partials/nav-bar.html' %}
+  <!--<a href="{% url 'home' %}">Go Home</a>-->
+  <!--<a href="{% url 'about' %}">About This Site</a>-->
+  <!--<a href="{% url 'data' %}">See Data</a>-->
+ {% endblock %}
+</body>
+</html>

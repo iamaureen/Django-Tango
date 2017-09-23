@@ -42,4 +42,11 @@ if successful, it should return the json of this entry, check using get method u
 install DB browser for SQLite
 navigate to django project and open the db.sqlite3 database
 
+----------------------------------------------------------
+write a view to return json -> add url in core/urls.py -> paste http://127.0.0.1:8000/handlejson/ in the browser (TODO: pass into template)
+the returnJson class can
+   - return a hardcoded json
+   - convert a dictionary into json and return it
+
+
 

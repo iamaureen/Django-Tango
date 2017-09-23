@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BeautifulSoupDemo.iml" filepath="$PROJECT_DIR$/.idea/BeautifulSoupDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/webpoll.iml" filepath="$PROJECT_DIR$/.idea/webpoll.iml" />
     </modules>
   </component>
 </project>

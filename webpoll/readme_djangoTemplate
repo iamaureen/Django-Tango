@@ -1,0 +1,42 @@
+ref link :: https://scotch.io/tutorials/working-with-django-templates-static-files
+Static files include stuff like CSS, JavaScript and images that you may want to serve alongside your site.
+
+1) add static settings in the settings.py, create an app "djangoTemplate" and add it in INSTALLED_APPS
+
+2) configure the urls both in djangoTemplate/urls.py and urls.py
+
+3) Django views take in HTTP requests and return HTTP responses. In this example, we shall use a
+TemplateView that returns a Home Page template and another one for the About page.
+
+4) create index.html and about.html inside djangoTemplate/templates/djangoTemplate folder
+ <a href="{% url 'home' %}">Go Home</a> --> here 'home' is a variable name of the url given,  check djangoTemplate/urls.py
+ In this way, the url is not hardcoded, and the index url can change without altering the html files
+
+5) inside webpoll directory, from comd prompt, python manage.py migrate
+then run the server: python manage.py runserver
+
+6) Template Inheritence: Instead of rewriting the same code in both of them, Django allows us to create a base template
+ which they will both inherit from. This prevents us from having to write a lot of repeated code in our templates when we
+ need to modify anything that is shared.
+ for example: the header, the footer, the stylesheets etc
+
+7) create a base.html
+{% load static %} -> tell the template engine to use the files in the static folder in this template
+
+In the title tag, we use a Django block. What this means is that in any Django template which inherits from
+this base template, any HTML which is inside a block named title will be plugged into the title block.
+The same goes for the body tag's pagecontent block.
+
+8) edit the index.html/about.html template to inherit from the base template. and run the server, nothing appears.
+because in the index.html we have to define the blocks that needs to be rendered in base.html
+so in the index.html we add the block/endblock that we want to render through base.html
+
+9) since both templates inherit from a base template, we add .css files to style them.
+
+10) rendering templates with data from views:
+DataPageView in views.py -> data send to data.html
+
+11) Including snippets in a template is very simple. create partials folder. create nav-bar.html with the common three links.
+use include keyword
+
+

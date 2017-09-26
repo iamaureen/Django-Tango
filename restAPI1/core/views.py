@@ -44,6 +44,7 @@ class ProductList(APIView):
     def post(self, request, format=None):
         html_data = request.data
         parsed_data = parser.html_parse(self,html_data)
+        print('from views.py', parsed_data)
         return HttpResponse(parsed_data)
         # serializer = ProductSerializer(data=request.data)
         # if serializer.is_valid():

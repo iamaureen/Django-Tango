@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Product
 from .serializers import ProductSerializer
+from .parser import parser
 from django.http import JsonResponse, HttpResponse
 import json
 
@@ -41,11 +42,15 @@ class ProductList(APIView):
     #http://127.0.0.1:8000/products/
     #name(str), description(str), price(str)
     def post(self, request, format=None):
-        serializer = ProductSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        html_data = request.data
+        parsed_data = parser.html_parse(self,html_data)
+        return HttpResponse(parsed_data)
+        # serializer = ProductSerializer(data=request.data)
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     #return HttpResponse(serializer.data['description'])
+        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class handleJson(APIView):

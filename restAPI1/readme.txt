@@ -4,8 +4,12 @@ https://www.andreagrandi.it/2016/09/28/creating-production-ready-api-python-djan
 1.create application, create app called "core" and register in settings.py under INSTALLED_APPS
 
 2. write models and migrate using the following command
-python manage.py makemigrations core
-python manage.py migrate core
+python manage.py makemigrations <app_name>
+python manage.py makemigrations <core>
+python manage.py migrate <app_name>
+python manage.py migrate <core>
+
+<with every change in the model, run through these lines>
 
 3. create serializers 
 

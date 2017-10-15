@@ -8,6 +8,7 @@ from rest_framework import status
 class BookmarkView(APIView):
     def post(self, request):
         serializer = bookmarkSerializer(data=request.data)
+        print(request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
